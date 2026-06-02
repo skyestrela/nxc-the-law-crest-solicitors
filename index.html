@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbour Legal Partners | Solicitors</title>
+<style>
+  /* LAYOUT B: Split-screen hero + card-grid services + timeline about section */
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;color:#333;background:#faf9f7}
+  .top-bar{background:#0d3b2e;padding:.6rem 2rem;color:#c8d5c9;font-size:.8rem;text-align:right}
+  .top-bar a{color:#a8d4a0;text-decoration:none;margin-left:1.5rem}
+  header{background:#faf9f7;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid #e0ddd5}
+  .brand{font-size:1.5rem;color:#0d3b2e;font-weight:700;letter-spacing:2px}
+  .brand span{color:#8b6f47;font-style:italic}
+  header nav{display:flex;gap:2rem}
+  header nav a{text-decoration:none;color:#444;font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;transition:color .3s}
+  header nav a:hover{color:#0d3b2e}
+
+  .split-hero{display:flex;min-height:90vh}
+  .split-hero-left{flex:1;background:#0d3b2e;display:flex;flex-direction:column;justify-content:center;padding:4rem;color:#fff;position:relative}
+  .split-hero-left::after{content:'';position:absolute;right:0;top:10%;bottom:10%;width:3px;background:#8b6f47}
+  .split-hero-left h1{font-size:3rem;line-height:1.2;margin-bottom:1rem;font-weight:400}
+  .split-hero-left h1 strong{font-weight:700;display:block;color:#a8d4a0}
+  .split-hero-left p{font-size:1.05rem;line-height:1.8;opacity:.85;margin-bottom:2rem;max-width:450px}
+  .btn-hollow{display:inline-block;border:2px solid #a8d4a0;color:#a8d4a0;padding:.9rem 2.5rem;text-decoration:none;text-transform:uppercase;letter-spacing:2px;font-size:.85rem;transition:all .3s}
+  .btn-hollow:hover{background:#a8d4a0;color:#0d3b2e}
+  .split-hero-right{flex:1;background:linear-gradient(135deg,#e8e2d8,#d4ccb8);display:flex;align-items:center;justify-content:center;position:relative}
+  .hero-quote{max-width:400px;padding:3rem;background:rgba(255,255,255,0.9);border-top:4px solid #8b6f47;text-align:center}
+  .hero-quote blockquote{font-size:1.3rem;font-style:italic;line-height:1.7;color:#333;margin-bottom:1rem}
+  .hero-quote cite{color:#8b6f47;font-size:.85rem}
+
+  .services{padding:5rem 2rem;background:#faf9f7}
+  .services h2{text-align:center;font-size:2rem;color:#0d3b2e;margin-bottom:3rem;letter-spacing:1px}
+  .services h2::after{content:'';display:block;width:60px;height:3px;background:#8b6f47;margin:.8rem auto 0}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+  .card{background:#fff;border:1px solid #e0ddd5;padding:2.5rem 2rem;transition:transform .3s,box-shadow .3s;position:relative}
+  .card::before{content:attr(data-num);position:absolute;top:1rem;right:1.5rem;font-size:3rem;color:#e8e2d8;font-weight:700;font-family:'Georgia',serif}
+  .card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .card h3{color:#0d3b2e;font-size:1.2rem;margin-bottom:1rem;padding-top:1rem;letter-spacing:.5px}
+  .card p{color:#666;line-height:1.7;font-size:.95rem}
+
+  .timeline-section{background:#0d3b2e;padding:5rem 2rem;color:#fff}
+  .timeline-section h2{text-align:center;font-size:2rem;margin-bottom:3rem;letter-spacing:1px}
+  .timeline{max-width:700px;margin:0 auto;position:relative;padding-left:40px}
+  .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:#8b6f47}
+  .timeline-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+  .timeline-item::before{content:'';position:absolute;left:-29px;top:6px;width:12px;height:12px;background:#a8d4a0;border-radius:50%;border:2px solid #0d3b2e}
+  .timeline-item h3{color:#a8d4a0;font-size:1.1rem;margin-bottom:.3rem}
+  .timeline-item p{opacity:.8;line-height:1.6;font-size:.95rem}
+
+  .contact-strip{background:#8b6f47;padding:3rem 2rem;text-align:center}
+  .contact-strip h2{color:#fff;font-size:1.8rem;margin-bottom:1rem;letter-spacing:1px}
+  .contact-strip p{color:rgba(255,255,255,.85);margin-bottom:1.5rem;font-size:1.1rem}
+  .contact-strip .phone{color:#fff;font-size:2rem;font-weight:700;text-decoration:none;display:inline-block;border-bottom:2px solid rgba(255,255,255,.5)}
+  .contact-strip .phone:hover{border-color:#fff}
+
+  footer{background:#0a2a1f;padding:2rem;text-align:center;color:#5a7a5e;font-size:.8rem;line-height:1.8}
+
+  @media(max-width:768px){
+    .split-hero{flex-direction:column}
+    .split-hero-left{padding:3rem 2rem;min-height:auto}
+    .split-hero-left::after{display:none}
+    .split-hero-right{min-height:auto;padding:3rem}
+    header{flex-direction:column;gap:1rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="tel:02075584221">020 7558 4221</a>
+  <a href="#contact">Directions</a>
+</div>
+
+<header>
+  <div class="brand">HARBOUR <span>Legal Partners</span></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">Our Story</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="split-hero">
+  <div class="split-hero-left">
+    <h1>Your case deserves <strong>a dedicated team</strong></h1>
+    <p>Harbour Legal Partners has been the trusted name for individuals and businesses navigating complex legal matters across London.</p>
+    <a href="tel:02075584221" class="btn-hollow">Schedule a Consultation</a>
+  </div>
+  <div class="split-hero-right">
+    <div class="hero-quote">
+      <blockquote>"Exceptional knowledge and genuine care for their clients."</blockquote>
+      <cite>— London Legal Directory</cite>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <h2>Practice Areas</h2>
+  <div class="card-grid">
+    <div class="card" data-num="01">
+      <h3>Commercial Litigation</h3>
+      <p>Resolving business disputes efficiently, from breach of contract to shareholder conflicts. We protect your commercial interests.</p>
+    </div>
+    <div class="card" data-num="02">
+      <h3>Residential Property</h3>
+      <p>End-to-end conveyancing for purchases, sales, and remortgages. Transparent fees with no hidden costs.</p>
+    </div>
+    <div class="card" data-num="03">
+      <h3>Wills & Probate</h3>
+      <p>Protecting your legacy with professionally drafted wills, estate planning, and sensitive probate administration.</p>
+    </div>
+    <div class="card" data-num="04">
+      <h3>Personal Injury</h3>
+      <p>Claiming the compensation you deserve after an accident. No win, no fee arrangements available.</p>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section" id="about">
+  <h2>Our Journey</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Founded 2001</h3>
+      <p>Established by two senior solicitors with a vision for accessible, client-first legal services in South London.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Growing Reputation</h3>
+      <p>Word-of-mouth referrals built our practice. By 2010 we had expanded to a team of 12 specialist solicitors.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Community Commitment</h3>
+      <p>We provide pro bono legal clinics and partner with local organisations to ensure access to justice for all.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Today</h3>
+      <p>A full-service firm with deep roots in the community and a track record of successful outcomes across multiple practice areas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-strip" id="contact">
+  <h2>Ready to Talk?</h2>
+  <p>Your first consultation is free. Speak to a solicitor today.</p>
+  <a href="tel:02075584221" class="phone">020 7558 4221</a>
+</section>
+
+<footer>
+  <p>Harbour Legal Partners &bull; London</p>
+  <p>Mon-Fri 9:00-18:00 &bull; Sat by appointment</p>
+  <p>&copy; 2026 Harbour Legal Partners. All rights reserved.</p>
+</footer>
+</body>
+</html>
